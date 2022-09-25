@@ -41,7 +41,7 @@ bot(
 	{
 		pattern: 'reset ?(.*)',
 		fromMe: true,
-		desc: 'reset groups message count',
+		desc: 'grup mesaj sayısını sıfırla',
 		type: 'group',
 		onlyGroup: true,
 	},
@@ -49,11 +49,11 @@ bot(
 		const user = message.reply_message.jid || message.mention[0]
 		if (!user && match != 'all')
 			return await message.send(
-				'*Example :*\nreset all\nreset mention/reply a person'
+				'*Örnek :*\nreset all\nreset mention/bir kişiye cevap ver!'
 			)
 		if (match == 'all') {
 			await resetMsgs(message.jid)
-			return await message.send('_Everyones message count deleted._')
+			return await message.send('_Herkesin mesaj sayısı silindi._')
 		}
 		await resetMsgs(message.jid, user)
 		return await message.send(
@@ -67,7 +67,7 @@ bot(
 	{
 		pattern: 'inactive ?(.*)',
 		fromMe: true,
-		desc: 'show/kick who message count not met',
+		desc: 'mesaj sayısının karşılanmadığını göster',
 		type: 'group',
 		onlyGroup: true,
 	},
@@ -84,7 +84,7 @@ bot(
 			(COUNT && isNaN(COUNT))
 		)
 			return await message.send(
-				`*Example :*\ninactive day 10\ninactive day 10 kick\ninactive total 100\ninactive total 100 kick\ninactive day 7 total 150\ninactive day 7 total 150 kick\n\nif kick not mentioned, Just list`
+				`*Örnek :*\ninactive day 10\ninactive day 10 kick\ninactive total 100\ninactive total 100 kick\ninactive day 7 total 150\ninactive day 7 total 150 kick\n\nban belirtilmemişse, Just list`
 			)
 		const { participants } = await getMsg(message.jid)
 		const now = new Date().getTime()
@@ -114,13 +114,13 @@ bot(
 			(id) => !inactive.includes(id) && !active.includes(id)
 		)
 		const tokick = [...inactive, ...notText]
-		let msg = `_Total inactives are : ${tokick.length}_`
+		let msg = `_Toplam etkin olmayanlar : ${tokick.length}_`
 		if (tokick.length < 1) return await message.send(msg)
 		if (kickOrType == 'kick' || KICK == 'kick') {
 			const isImAdmin = await isAdmin(members, message.client.user.jid)
-			if (!isImAdmin) return await message.send(`_I'm not admin._`)
+			if (!isImAdmin) return await message.send(`_Ben bu grupta admin değilim!_`)
 			await message.send(
-				`_Removing ${tokick.length} inactive members in 7 seconds_`
+				`_Çıkartılıyor ${tokick.length} 7 saniye içinde aktif olmayan üyeler_`
 			)
 			await sleep(7000)
 			return await message.Kick(tokick)

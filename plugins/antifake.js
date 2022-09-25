@@ -10,7 +10,7 @@ bot(
 	{
 		pattern: 'antifake ?(.*)',
 		fromMe: true,
-		desc: 'set antifake',
+		desc: 'Fake numaraları banlar.',
 		type: 'group',
 		onlyGroup: true,
 	},
@@ -62,6 +62,6 @@ bot(
 			)
 		}
 		await enableAntiFake(message.jid, match)
-		return await message.send('_Antifake Updated_')
+		return await message.send('_Antifake Güncellendi_')
 	}
 )

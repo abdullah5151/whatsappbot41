@@ -4,7 +4,7 @@ bot(
 	{
 		pattern: 'clear ?(.*)',
 		fromMe: true,
-		desc: 'delete whatsapp chat',
+		desc: 'Chat i temizler',
 		type: 'whatsapp',
 	},
 	async (message, match) => {

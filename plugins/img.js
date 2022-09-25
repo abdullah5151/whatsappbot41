@@ -4,7 +4,7 @@ bot(
 	{
 		pattern: 'img ?(.*)',
 		fromMe: true,
-		desc: 'Download img from google',
+		desc: 'Medya indirmeye ve göndermeye yarar.',
 		type: 'search',
 	},
 	async (message, match) => {

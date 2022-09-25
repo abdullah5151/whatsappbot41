@@ -12,19 +12,19 @@ bot(
 	{
 		pattern: 'amute ?(.*)',
 		fromMe: true,
-		desc: 'auto group mute scheduler',
+		desc: 'Grup susturma zamanlayıcı.',
 		type: 'group',
 		onlyGroup: true,
 	},
 	async (message, match) => {
 		const participants = await message.groupMetadata(message.jid)
 		const isImAdmin = await isAdmin(participants, message.client.user.jid)
-		if (!isImAdmin) return await message.send(`_I'm not admin._`)
+		if (!isImAdmin) return await message.send(`_Ben bu grupta admin değilim!_`)
 		let msg = message.reply_message.text || 'null'
 		const [hour, min] = match.split(' ')
 		if (hour == 'info') {
 			const task = await getMute(message.jid, 'mute')
-			if (!task) return await message.send('_Not Found AutoMute_')
+			if (!task) return await message.send('_AutoMute bulunamadı_')
 			const { hour, minute, msg, enabled } = task
 			return await message.send(
 				`*Hour :* ${hour}\n*Minute :* ${minute}\n*Time :* ${c24to12(
@@ -34,10 +34,10 @@ bot(
 		}
 		if (hour == 'on' || hour == 'off') {
 			const isMute = await setMute(message.jid, 'mute', hour == 'on')
-			if (!isMute) return await message.send('_Not Found AutoMute')
+			if (!isMute) return await message.send('_AutoMute bulunamadı')
 			const task = await getMute(message.jid, 'mute')
 			if (!task || !task.hour)
-				return await message.send('_Not Found AutoMute_')
+				return await message.send('_AutoMute bulunamadı_')
 			const isTask = addTask(
 				message.jid,
 				'mute',
@@ -47,7 +47,7 @@ bot(
 				task.msg
 			)
 			if (!isTask)
-				return await message.send('_AutoMute Already Disabled_')
+				return await message.send('_AutoMute halihazırda kapalı_')
 			return await message.send(
 				`_AutoMute ${hour == 'on' ? 'Enabled' : 'Disabled'}._`
 			)
@@ -60,7 +60,7 @@ bot(
 						{ id: 'amute off', text: 'OFF' },
 						{ id: 'amute info', text: 'INFO' },
 					],
-					'*Example : amute 6 0*\namute info\namute on/off\nReply to a text to set Msg'
+					'*Örnek : amute 6 0*\nMute Bilgisi\nmute on/off\Mesajı ayarlamak için bir metne yanıt verin'
 				),
 				{},
 				'button'
@@ -80,7 +80,7 @@ bot(
 	{
 		pattern: 'aunmute ?(.*)',
 		fromMe: true,
-		desc: 'auto group unmute scheduler',
+		desc: 'otomatik grup açma zamanlayıcısı',
 		type: 'group',
 		onlyGroup: true,
 	},
@@ -93,7 +93,7 @@ bot(
 		if (hour == 'info') {
 			const task = await getMute(message.jid, 'unmute')
 			if (!task || !task.hour)
-				return await message.send('_Not Found AutoUnMute_')
+				return await message.send('_AutoUnmute bulunamadı_')
 			const { hour, minute, msg, enabled } = task
 			return await message.send(
 				`*Hour :* ${hour}\n*Minute :* ${minute}\n*Time :* ${c24to12(
@@ -103,9 +103,9 @@ bot(
 		}
 		if (hour == 'on' || hour == 'off') {
 			const isMute = await setMute(message.jid, 'unmute', hour == 'on')
-			if (!isMute) return await message.send('_Not Found AutoUnMute_')
+			if (!isMute) return await message.send('_AutoUnmute bulunamadı_')
 			const task = await getMute(message.jid, 'unmute')
-			if (!task) return await message.send('_Not Found AutoUnMute_')
+			if (!task) return await message.send('_AutoUnmute bulunamadı_')
 			const isTask = addTask(
 				message.jid,
 				'unmute',
@@ -115,7 +115,7 @@ bot(
 				task.msg
 			)
 			if (!isTask)
-				return await message.send('_AutoUnMute Already Disabled_')
+				return await message.send('_AutoUnMute halihazırda kapalı_')
 			return await message.send(
 				`_AutoUnMute ${hour == 'on' ? 'Enabled' : 'Disabled'}._`
 			)
@@ -128,7 +128,7 @@ bot(
 						{ id: 'aunmute off', text: 'OFF' },
 						{ id: 'aunmute info', text: 'INFO' },
 					],
-					'*Example : aunmute 6 0*\naunmute info\naunmute on/off\nReply to a text to set Msg'
+					'*Örnek : unmute 6 0*\nunMute Bilgisi\nunmute on/off\Mesajı ayarlamak için bir metne yanıt verin'
 				),
 				{},
 				'button'
@@ -136,7 +136,7 @@ bot(
 		await setMute(message.jid, 'unmute', true, hour, min, msg)
 		addTask(message.jid, 'unmute', hour, min, message.client, msg)
 		return await message.send(
-			`_Group will unMute at ${c24to12(`${hour}:${min}`)}_${
+			`Grup şu saatte açılacak: ${c24to12(`${hour}:${min}`)}_${
 				msg != 'null' ? `\n_Message: ${msg}_` : ''
 			}`
 		)

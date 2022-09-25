@@ -23,12 +23,12 @@ bot.addCommand(
 
 ╭────────────────
 │ Prefix : ${PREFIX}
-│ User : ${message.pushName}
-│ Time : ${date.toLocaleTimeString()}
-│ Day : ${date.toLocaleString('en', { weekday: 'long' })}
-│ Date : ${date.toLocaleDateString('hi')}
+│ Kullanıcı: ${message.pushName}
+│ Saat : ${date.toLocaleTimeString()}
+│ Gün : ${date.toLocaleString('en', { weekday: 'long' })}
+│ Tarih : ${date.toLocaleDateString('hi')}
 │ Version : ${VERSION}
-│ Plugins : ${PLUGINS.count}
+│ Eklentiler : ${PLUGINS.count}
 │ Ram : ${getRam()}
 │ Uptime : ${getUptime('t')}
 ╰────────────────
@@ -97,12 +97,12 @@ bot.addCommand(
 			`╭═══ LEVANTER ═══⊷
 ┃❃╭──────────────
 ┃❃│ Prefix : ${PREFIX}
-┃❃│ User : ${message.pushName}
-┃❃│ Time : ${date.toLocaleTimeString()}
-┃❃│ Day : ${date.toLocaleString('en', { weekday: 'long' })}
-┃❃│ Date : ${date.toLocaleDateString('hi')}
+┃❃│ Kullanıcı : ${message.pushName}
+┃❃│ Saat : ${date.toLocaleTimeString()}
+┃❃│ Gün : ${date.toLocaleString('en', { weekday: 'long' })}
+┃❃│ Tarih : ${date.toLocaleDateString('hi')}
 ┃❃│ Version : ${VERSION}
-┃❃│ Plugins : ${PLUGINS.count}
+┃❃│ Eklenti : ${PLUGINS.count}
 ┃❃│ Ram : ${getRam()}
 ┃❃│ Uptime : ${getUptime('t')}
 ┃❃╰───────────────

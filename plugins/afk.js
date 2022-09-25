@@ -10,13 +10,13 @@ bot(
 	{
 		pattern: 'afk ?(.*)',
 		fromMe: true,
-		desc: 'away from keyboard',
+		desc: 'Afk Kalmaya yarar',
 		type: 'misc',
 	},
 	async (message, match) => {
 		if (!global.AFK.isAfk && !match)
 			return await message.send(
-				'Example : My owner is AFK\n last seen before #lastseen\nTo off afk send a msg again.'
+				'Şu Anda Müsait Değil \nHayatta Yapacak Çok Şey Var Onlardan Birini Yapıyor..'
 			)
 		if (!global.AFK.isAfk) {
 			if (match) global.AFK.reason = match

@@ -4,7 +4,7 @@ bot(
 	{
 		pattern: 'pdm ?(.*)',
 		fromMe: true,
-		desc: 'To manage promote demote alert',
+		desc: 'Yetki, Yetki alma uyarısını yönetmek için',
 		type: 'group',
 		onlyGroup: true,
 	},

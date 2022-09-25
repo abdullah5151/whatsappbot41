@@ -3,7 +3,7 @@ bot(
 	{
 		pattern: 'apk ?(.*)',
 		fromMe: true,
-		desc: 'Download apk from apkmirror',
+		desc: `apkmirror'dan apk yüklemenize yarar.`,
 		type: 'download',
 	},
 	async (message, match) => {
@@ -12,13 +12,13 @@ bot(
 		if (status > 400) {
 			if (!result.length)
 				return await message.send(
-					'_No results found matching your query_'
+					'_Eşleşen bir sonuç bulunamadı_'
 				)
 			const list = []
 			for (const { title, url } of result)
 				list.push({ id: `apk ${status};;${url}`, text: title })
 			return await message.send(
-				genListMessage(list, 'Matching apps', 'DOWNLOAD'),
+				genListMessage(list, 'Aramanız ile eşleşen uygulamalar', 'DOWNLOAD'),
 				{},
 				'list'
 			)
@@ -31,7 +31,7 @@ bot(
 					text: result[apk].title,
 				})
 			return await message.send(
-				await genButtonMessage(button, 'Available apks'),
+				await genButtonMessage(button, 'Kullanılabilir apklar'),
 				{},
 				'button'
 			)

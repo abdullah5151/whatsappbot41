@@ -14,16 +14,16 @@ bot(
 	{
 		pattern: 'plugin ?(.*)',
 		fromMe: true,
-		desc: 'Install External plugins',
+		desc: 'Plugin yükler.',
 		type: 'misc',
 	},
 	async (message, match) => {
 		match = match || message.reply_message.text
 		if (!match && match !== 'list')
-			return await message.send('*Example :*\nplugin url\nplugin list')
+			return await message.send('*Öernek :*\nplugin url\nplugin list')
 		if (match == 'list') {
 			const plugins = await getPlugin()
-			if (!plugins) return await message.send(`*Plugins not installed*`)
+			if (!plugins) return await message.send(`*Plugin yüklenemedi!*`)
 			let msg = ''
 			plugins.map(({ name, url }) => {
 				msg += `${name} : ${url}\n`
@@ -35,7 +35,7 @@ bot(
 			const { url } = await getPlugin(match)
 			if (url) return await message.send(url, { quoted: message.data })
 		}
-		if (!isValidUrl) return await message.send('*Give me valid plugin urls*')
+		if (!isValidUrl) return await message.send('*Geçersiz url!*')
 		for (const url of isValidUrl) {
 			try {
 				const res = await got(url)
@@ -51,7 +51,7 @@ bot(
 					}
 					await setPlugin(plugin_name, url)
 					await message.send(
-						`_Newly installed plugins are : ${pluginsList(res.body).join(',')}_`
+						`_Yeni yüklenen eklentiler : ${pluginsList(res.body).join(',')}_`
 					)
 				}
 			} catch (error) {
@@ -65,18 +65,18 @@ bot(
 	{
 		pattern: 'remove ?(.*)',
 		fromMe: true,
-		desc: 'Delete External Plugins',
+		desc: 'Plugin siler.',
 		type: 'misc',
 	},
 	async (message, match) => {
 		if (!match)
-			return await message.send('*Example :*\nremove mforward\nremove all')
+			return await message.send('*Örnek :*\nremove mforward\nremove all')
 		if (match == 'all') {
 			await delPlugin()
 			return await message.send(
 				await genButtonMessage(
 					[{ text: 'RESTART BOT', id: 'restart' }],
-					'_All plugins deleted Successfully_'
+					'_Tüm eklentiler başarıyla silindi_'
 				),
 				{},
 				'button'
@@ -92,7 +92,7 @@ bot(
 					{ text: 'RESTART', id: 'restart' },
 					{ text: 'REBOOT', id: 'reboot' },
 				],
-				'_Plugin Deleted_'
+				'_Plugin Silindi_'
 			),
 			{},
 			'button'

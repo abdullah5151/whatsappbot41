@@ -4,7 +4,7 @@ bot(
 	{
 		pattern: 'insta ?(.*)',
 		fromMe: true,
-		desc: 'Download Instagram Posts',
+		desc: 'İnstagram postunun indirmeye yarar.',
 		type: 'download',
 	},
 	async (message, match) => {
@@ -12,7 +12,7 @@ bot(
 		if (!match) return await message.send('_Example : insta url_')
 		const result = await instagram(match)
 		if (!result.length)
-			return await message.send('*Not found*', {
+			return await message.send('*Bulunamadı*', {
 				quoted: message.quoted,
 			})
 		for (const url of result) {

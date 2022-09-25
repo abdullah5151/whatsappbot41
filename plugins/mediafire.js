@@ -4,15 +4,15 @@ bot(
 	{
 		pattern: 'mediafire ?(.*)',
 		fromMe: true,
-		desc: 'Download mediafire file',
+		desc: 'Mediafire dan dosya indirir',
 		type: 'download',
 	},
 	async (message, match) => {
 		match = isUrl(match || message.reply_message.text)
-		if (!match) return await message.send('_Example : mediafire url_')
+		if (!match) return await message.send('_Örnek : https://mediafire/_')
 		const result = await mediafire(match)
 		if (!result)
-			return await message.send('*Not found*', {
+			return await message.send('*Dosya bulunamadı!*', {
 				quoted: message.quoted,
 			})
 		return await message.sendFromUrl(result)

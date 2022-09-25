@@ -4,15 +4,15 @@ bot(
 	{
 		pattern: 'pinterest ?(.*)',
 		fromMe: true,
-		desc: 'Download pinterest video/image',
+		desc: 'Pinterestten video indirir/image',
 		type: 'download',
 	},
 	async (message, match) => {
 		match = isUrl(match || message.reply_message.text)
-		if (!match) return await message.send('_Example : pinterest url_')
+		if (!match) return await message.send('_Örnel : pinterest url_')
 		const result = await pinterest(match)
 		if (!result)
-			return await message.send('*Not found*', {
+			return await message.send('*Bulunamadı!*', {
 				quoted: message.quoted,
 			})
 		return await message.sendFromUrl(result)

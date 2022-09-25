@@ -15,11 +15,11 @@ bot(
 	{
 		pattern: 'restart',
 		fromMe: true,
-		desc: 'Restart Dyno',
+		desc: 'Botu yeniden başlatır.',
 		type: 'heroku',
 	},
 	async (message, match) => {
-		await message.send(`_Restarting_`)
+		await message.send(`_Yeniden Başlatılıyor..._`)
 		await heroku.delete(baseURI + '/dynos').catch(async (error) => {
 			await message.send(`HEROKU : ${error.body.message}`)
 		})
@@ -30,7 +30,7 @@ bot(
 	{
 		pattern: 'shutdown',
 		fromMe: true,
-		desc: 'Dyno off',
+		desc: 'Botu Kapatmaya yarar',
 		type: 'heroku',
 	},
 	async (message, match) => {
@@ -54,7 +54,7 @@ bot(
 	{
 		pattern: 'dyno',
 		fromMe: true,
-		desc: 'Show Quota info',
+		desc: 'Kota bilgilerini göster.',
 		type: 'heroku',
 	},
 	async (message, match) => {
@@ -91,7 +91,7 @@ bot(
 	{
 		pattern: 'setvar ?(.*)',
 		fromMe: true,
-		desc: 'Set heroku env',
+		desc: 'Heroku ayarlarını değiştirir.',
 		type: 'heroku',
 	},
 	async (message, match) => {
@@ -119,7 +119,7 @@ bot(
 	{
 		pattern: 'delvar ?(.*)',
 		fromMe: true,
-		desc: 'Delete Heroku env',
+		desc: 'Heroku env siler',
 		type: 'heroku',
 	},
 	async (message, match) => {
@@ -148,7 +148,7 @@ bot(
 	{
 		pattern: 'getvar ?(.*)',
 		fromMe: true,
-		desc: 'Show heroku env',
+		desc: 'Heroku config ayarlar',
 		type: 'heroku',
 	},
 	async (message, match) => {
@@ -174,7 +174,7 @@ bot(
 	{
 		pattern: 'allvar',
 		fromMe: true,
-		desc: 'Heroku all env',
+		desc: 'Heroku tüm configleri gösterir',
 		type: 'heroku',
 	},
 	async (message, match) => {
@@ -197,7 +197,7 @@ bot(
 	{
 		pattern: 'update$',
 		fromMe: true,
-		desc: 'Check new updates.',
+		desc: 'Yeni güncellemeleri kontrol eder.',
 		type: 'heroku',
 	},
 	async (message, match) => {
@@ -219,16 +219,16 @@ bot(
 	{
 		pattern: 'update now$',
 		fromMe: true,
-		desc: 'To-Up-Date bot.',
+		desc: 'Botu günceller.',
 		type: 'heroku',
 	},
 	async (message, match) => {
 		const isupdate = await isUpdate()
 		if (!isupdate.length)
-			return await message.send('*Bot is up-to-date.*\n*Nothing to Update.*')
+			return await message.send('*Bot zaten güncel.*\n*Güncelleme mümkün değil.*')
 		await message.send('_Updating..._')
 		const e = await updateNow()
 		if (e) return await message.send(e)
-		return await message.send('_Updated_')
+		return await message.send('_Güncelleniyor..._')
 	}
 )

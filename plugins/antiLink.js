@@ -4,7 +4,7 @@ bot(
 	{
 		pattern: 'antilink ?(.*)',
 		fromMe: true,
-		desc: 'to on off antiLink',
+		desc: 'Antilink açmaya yarar.',
 		type: 'group',
 		onlyGroup: true,
 	},
@@ -46,7 +46,7 @@ bot(
 		}
 		if (match == 'on' || match == 'off') {
 			if (match == 'off' && !antilink)
-				return await message.send('_AntiLink is not enabled._')
+				return await message.send('_AntiLink Kapalı._')
 			await setAntiLink(message.jid, match == 'on')
 			return await message.send(
 				`_AntiLink ${match == 'on' ? 'Enabled' : 'Disabled.'}_`
@@ -62,10 +62,10 @@ bot(
 			await setAntiLink(message.jid, match)
 			const action = match.replace('action/', '')
 			if (!['warn', 'kick', 'null'].includes(action))
-				return await message.send('*Invalid action*')
-			return await message.send(`_AntiLink action updated as ${action}_`)
+				return await message.send('*Geçersiz komut*')
+			return await message.send(`_Antilink artık ${action}_`)
 		}
 		await setAntiLink(message.jid, match)
-		return await message.send(`_AntiLink allowed urls are ${match}_`)
+		return await message.send(`_Antilink izin verilen url'ler ${match}_`)
 	}
 )

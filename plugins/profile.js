@@ -14,7 +14,7 @@ bot(
 	{
 		pattern: 'jid',
 		fromMe: fm,
-		desc: 'Give jid of chat/user',
+		desc: 'Grup/Chat jid ini verir.',
 		type: 'user',
 	},
 	async (message, match) => {
@@ -28,7 +28,7 @@ bot(
 	{
 		pattern: 'left',
 		fromMe: fm,
-		dec: 'To leave from group',
+		dec: 'Gruptan ayrılmak için',
 		type: 'user',
 		onlyGroup: true,
 	},
@@ -42,7 +42,7 @@ bot(
 	{
 		pattern: 'block',
 		fromMe: fm,
-		desc: 'Block a person',
+		desc: 'Bir kişiyi engeller',
 		type: 'user',
 	},
 	async (message, match) => {
@@ -50,8 +50,8 @@ bot(
 			message.mention[0] ||
 			message.reply_message.jid ||
 			(!message.isGroup && message.jid)
-		if (!id) return await message.send('*Give me a person*')
-		await message.send('_Blocked_')
+		if (!id) return await message.send('*Birisini yanıtla!/etiketle*')
+		await message.send('_Engellendi_')
 		await message.Block(id)
 	}
 )
@@ -60,7 +60,7 @@ bot(
 	{
 		pattern: 'unblock',
 		fromMe: fm,
-		desc: 'Unblock a person',
+		desc: 'Bir kişinin engellemesini kaldır',
 		type: 'user',
 	},
 	async (message, match) => {
@@ -68,8 +68,8 @@ bot(
 			message.mention[0] ||
 			message.reply_message.jid ||
 			(!message.isGroup && message.jid)
-		if (!id) return await message.send('*Give me a person*')
-		await message.send('_Unblocked_')
+		if (!id) return await message.send('*Birisini yanıtla!/etiketle*')
+		await message.send('_Engel açıldı!_')
 		await message.Unblock(id)
 	}
 )
@@ -78,16 +78,16 @@ bot(
 	{
 		pattern: 'pp',
 		fromMe: fm,
-		desc: 'Change Profile Picture',
+		desc: 'Profil resmini değiştirir',
 		type: 'user',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image*')
+			return await message.send('*Bir fotoğrafı yanıtla!*')
 		await message.updateProfilePicture(
 			await message.reply_message.downloadMediaMessage()
 		)
-		return await message.send('_Profile Picture Updated_')
+		return await message.send('_Profil Resmi Güncellendi!_')
 	}
 )
 
@@ -95,7 +95,7 @@ bot(
 	{
 		pattern: 'whois ?(.*)',
 		fromMe: fm,
-		desc: 'To get PP and about',
+		desc: 'PP ve Biografi hakında.',
 		type: 'misc',
 	},
 	async (message, match) => {
@@ -136,7 +136,7 @@ bot(
 	{
 		pattern: 'gjid',
 		fromMe: fm,
-		desc: 'List group jids',
+		desc: 'grup kişilerini listeler',
 		type: 'user',
 	},
 	async (message, match) => {

@@ -6,11 +6,11 @@ bot(
 		pattern: 'skull',
 		fromMe: fm,
 		type: 'editor',
-		desc: 'Skull Photo editor.',
+		desc: 'Skull Fotoğraf editleyici.',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image.*')
+			return await message.send('*Bir Fotoğrafı yanıtla!.*')
 		const { status, result } = await photoEditor(
 			await message.reply_message.downloadAndSaveMediaMessage(),
 			'skull'
@@ -24,11 +24,11 @@ bot(
 		pattern: 'sketch',
 		fromMe: fm,
 		type: 'editor',
-		desc: 'Sketch Photo editor.',
+		desc: 'Sketch Fotoğraf editleyici.',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image.*')
+			return await message.send('*Bir Fotoğrafı yanıtla!.*')
 		const { status, result } = await photoEditor(
 			await message.reply_message.downloadAndSaveMediaMessage(),
 			'sketch'
@@ -43,11 +43,11 @@ bot(
 		pattern: 'pencil',
 		fromMe: fm,
 		type: 'editor',
-		desc: 'pencil Photo editor.',
+		desc: 'pencil Fotoğraf editleyici.',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image.*')
+			return await message.send('*Bir Fotoğrafı yanıtla!.*')
 		const { status, result } = await photoEditor(
 			await message.reply_message.downloadAndSaveMediaMessage(),
 			'pencil'
@@ -62,11 +62,11 @@ bot(
 		pattern: 'color',
 		fromMe: fm,
 		type: 'editor',
-		desc: 'color Photo editor.',
+		desc: 'Fotoğraf rengini editler.',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image.*')
+			return await message.send('*Bir Fotoğrafı yanıtla!*')
 		const { status, result } = await photoEditor(
 			await message.reply_message.downloadAndSaveMediaMessage(),
 			'color'
@@ -81,11 +81,11 @@ bot(
 		pattern: 'kiss',
 		fromMe: fm,
 		type: 'editor',
-		desc: 'kiss Photo editor.',
+		desc: 'kiss Fotoğraf Editleyici.',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image.*')
+			return await message.send('*Bir Fotoğrafı yanıtla!*')
 		const { status, result } = await photoEditor(
 			await message.reply_message.downloadAndSaveMediaMessage(),
 			'kiss'
@@ -100,11 +100,11 @@ bot(
 		pattern: 'bokeh',
 		fromMe: fm,
 		type: 'editor',
-		desc: 'bokeh Photo editor.',
+		desc: 'bokeh Fotoğraf editleyici.',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image.*')
+			return await message.send('*Bir Fotoğrafı yanıtla!*')
 		const { status, result } = await photoEditor(
 			await message.reply_message.downloadAndSaveMediaMessage(),
 			'bokeh'
@@ -119,11 +119,11 @@ bot(
 		pattern: 'wanted',
 		fromMe: fm,
 		type: 'editor',
-		desc: 'Wanted Photo editor.',
+		desc: 'Wanted Fotoğraf editleyici.',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image.*')
+			return await message.send('*Bir Fotoğrafı yanıtla!*')
 		const { status, result } = await photoEditor(
 			await message.reply_message.downloadAndSaveMediaMessage(),
 			'wanted'
@@ -138,11 +138,11 @@ bot(
 		pattern: 'look',
 		fromMe: fm,
 		type: 'editor',
-		desc: 'Dramatic Look Photo editor.',
+		desc: 'Dramatic Look Fotoğraf editleyici.',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image.*')
+			return await message.send('*Bir Fotoğrafı yanıtla!.*')
 		const { status, result } = await photoEditor(
 			await message.reply_message.downloadAndSaveMediaMessage(),
 			'look'
@@ -157,11 +157,11 @@ bot(
 		pattern: 'gandm',
 		fromMe: fm,
 		type: 'editor',
-		desc: 'Dramatic Look Photo editor.',
+		desc: 'Dramatic Look Fotoğraf editleyici.',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image.*')
+			return await message.send('*Bir Fotoğrafı yanıtla!.*')
 		const { status, result } = await photoEditor(
 			await message.reply_message.downloadAndSaveMediaMessage(),
 			'gandm'
@@ -176,11 +176,11 @@ bot(
 		pattern: 'dark',
 		fromMe: fm,
 		type: 'editor',
-		desc: 'Dramatic Look Photo editor.',
+		desc: 'Dramatic Look Fotoğraf editleyici.',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image.*')
+			return await message.send('*Bir Fotoğrafı yanıtla!.*')
 		const { status, result } = await photoEditor(
 			await message.reply_message.downloadAndSaveMediaMessage(),
 			'dark'
@@ -195,11 +195,11 @@ bot(
 		pattern: 'makeup',
 		fromMe: fm,
 		type: 'editor',
-		desc: 'Dramatic Look Photo editor.',
+		desc: 'Dramatic Look Fotoğraf editleyici.',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image.*')
+			return await message.send('*Bir Fotoğrafı yanıtla!.*')
 		const { status, result } = await photoEditor(
 			await message.reply_message.downloadAndSaveMediaMessage(),
 			'makeup'
@@ -214,11 +214,11 @@ bot(
 		pattern: 'cartoon',
 		fromMe: fm,
 		type: 'editor',
-		desc: 'Dramatic Look Photo editor.',
+		desc: 'Dramatic Look Fotoğraf editleyici.',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image.*')
+			return await message.send('*Bir Fotoğrafı yanıtla!.*')
 		const { status, result } = await photoEditor(
 			await message.reply_message.downloadAndSaveMediaMessage(),
 			'cartoon'
@@ -233,11 +233,11 @@ bot(
 		pattern: 'demon',
 		fromMe: fm,
 		type: 'editor',
-		desc: 'demon Look Photo editor.',
+		desc: 'demon Look Fotoğraf editleyici.',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image.*')
+			return await message.send('*Bir Fotoğrafı yanıtla!.*')
 		const { status, result } = await photoEditor(
 			await message.reply_message.downloadAndSaveMediaMessage(),
 			'demon'
@@ -252,11 +252,11 @@ bot(
 		pattern: 'bloody',
 		fromMe: fm,
 		type: 'editor',
-		desc: 'bloody Look Photo editor.',
+		desc: 'bloody Look Fotoğraf editleyici.',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image.*')
+			return await message.send('*Bir Fotoğrafı yanıtla!.*')
 		const { status, result } = await photoEditor(
 			await message.reply_message.downloadAndSaveMediaMessage(),
 			'bloody'
@@ -271,11 +271,11 @@ bot(
 		pattern: 'zombie',
 		fromMe: fm,
 		type: 'editor',
-		desc: 'zombie Look Photo editor.',
+		desc: 'zombie Look Fotoğraf editleyici.',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image.*')
+			return await message.send('*Bir Fotoğrafı yanıtla!.*')
 		const { status, result } = await photoEditor(
 			await message.reply_message.downloadAndSaveMediaMessage(),
 			'zombie'
@@ -290,11 +290,11 @@ bot(
 		pattern: 'horned',
 		fromMe: fm,
 		type: 'editor',
-		desc: 'horned Look Photo editor.',
+		desc: 'horned Look Fotoğraf editleyici.',
 	},
 	async (message, match) => {
 		if (!message.reply_message || !message.reply_message.image)
-			return await message.send('*Reply to a image.*')
+			return await message.send('*Bir Fotoğrafı yanıtla!.*')
 		const { status, result } = await photoEditor(
 			await message.reply_message.downloadAndSaveMediaMessage(),
 			'horned'

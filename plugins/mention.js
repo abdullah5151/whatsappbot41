@@ -11,7 +11,7 @@ bot(
 	{
 		pattern: 'mention ?(.*)',
 		fromMe: true,
-		desc: 'To set and Manage mention',
+		desc: 'Sözü ayarlamak ve yönetmek için',
 		type: 'misc',
 	},
 	async (message, match) => {
@@ -48,7 +48,7 @@ bot(
 		}
 		if (match == 'get') {
 			const msg = await mentionMessage()
-			if (!msg) return await message.send('_Reply to Mention not Activated._')
+			if (!msg) return await message.send('_Mentiona Yanıt Etkinleştirilmedi._')
 			return await message.send(msg)
 		} else if (match == 'on' || match == 'off') {
 			await enableMention(match == 'on')
@@ -58,6 +58,6 @@ bot(
 		}
 		await enableMention(match)
 		clearFiles()
-		return await message.send('_Mention Updated_')
+		return await message.send('_Mention Güncellendi_')
 	}
 )

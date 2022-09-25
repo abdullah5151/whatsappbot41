@@ -5,16 +5,16 @@ bot(
 	{
 		pattern: 'stop ?(.*)',
 		fromMe: fm,
-		desc: 'Delete filters in chat',
+		desc: 'Chat filter siler.',
 		type: 'group',
 		onlyGroup: true,
 	},
 	async (message, match) => {
-		if (!match) return await message.send(`*Example : .stop hi*`)
+		if (!match) return await message.send(`*Örnek : .stop Sa*`)
 		const isDel = await deleteFilter(message.jid, match)
 		if (!isDel)
-			return await message.send(`_${match} not found in filters_`)
-		return await message.send(`_${match} deleted._`)
+			return await message.send(`_${match} Filter bulunamadı!_`)
+		return await message.send(`_${match} Silindi._`)
 	}
 )
 
@@ -22,7 +22,7 @@ bot(
 	{
 		pattern: 'filter ?(.*)',
 		fromMe: fm,
-		desc: 'filter in groups',
+		desc: 'Gruba Filter eklemeye yarar',
 		type: 'group',
 		onlyGroup: true,
 	},
@@ -32,7 +32,7 @@ bot(
 			const filters = await getFilter(message.jid)
 			if (!filters)
 				return await message.send(
-					`_Not set any filter_\n*Example filter 'hi' 'hello'*`
+					`_Herhangibir Filter yok_\n*Örnek*: \n*.filter 'Sa' 'Aleyküm Selam'*`
 				)
 			let msg = ''
 			filters.map(({ pattern }) => {
@@ -41,7 +41,7 @@ bot(
 			return await message.send(msg.trim())
 		} else {
 			if (match.length < 2) {
-				return await message.send(`Example filter 'hi' 'hello'`)
+				return await message.send(`*.filter 'Sa' 'Aleyküm Selam'*`)
 			}
 			await setFilter(
 				message.jid,
@@ -50,7 +50,7 @@ bot(
 				match[0][0] === "'" ? true : false
 			)
 			await message.send(
-				`_${match[0].replace(/['"]+/g, '')}_ added to filters.`
+				`_${match[0].replace(/['"]+/g, '')}_Eklenen Filter'lar.`
 			)
 		}
 	}

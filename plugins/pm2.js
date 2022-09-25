@@ -4,11 +4,11 @@ bot(
 	{
 		pattern: 'reboot ?(.*)',
 		fromMe: true,
-		desc: 'restart with pm2',
+		desc: 'Botu yeniden başlatır',
 		type: 'misc',
 	},
 	async (message, match) => {
-		await message.send(`_Restarting_`)
+		await message.send(`_Yeniden başlatılıyor..._`)
 		restartInstance()
 	}
 )

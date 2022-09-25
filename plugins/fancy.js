@@ -3,7 +3,7 @@ bot(
 	{
 		pattern: 'fancy ?(.*)',
 		fromMe: true,
-		desc: 'Creates fancy text from given text',
+		desc: 'Metin yazı still ini düzenler.',
 		type: 'misc',
 	},
 	async (message, match) => {
@@ -13,7 +13,7 @@ bot(
 				(!match || isNaN(match) || match < 1 || match > 47))
 		)
 			return await message.send(
-				'*Example :*\nfancy Hi\nfancy 7 replying text msg'
+				'*Örnek :\n*Merhaba!*'
 			)
 		if (message.reply_message.text) {
 			return await message.send(

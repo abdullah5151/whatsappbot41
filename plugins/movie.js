@@ -4,7 +4,7 @@ bot(
 	{
 		pattern: 'movie ?(.*)',
 		fromMe: true,
-		desc: 'Movie info',
+		desc: 'Film bilgisi',
 		type: 'search',
 	},
 	async (message, match) => {
@@ -12,7 +12,7 @@ bot(
 			`http://www.omdbapi.com/?apikey=742b2d09&t=${match}&plot=full`
 		)
 		if (movie.Response != 'True')
-			return await message.send('*Not found*', {
+			return await message.send('*Bulunamadı*', {
 				quoted: message.data,
 			})
 		let msg = ''

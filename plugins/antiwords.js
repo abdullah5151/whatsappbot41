@@ -6,7 +6,7 @@ bot(
 	{
 		pattern: 'antiword ?(.*)',
 		fromMe: true,
-		desc: 'filter the group chat',
+		desc: 'Gruba Filter atamanızı sağlar.',
 		onlyGroup: true,
 		type: 'group',
 	},
@@ -38,9 +38,9 @@ bot(
 		if (match.startsWith('action/')) {
 			const action = match.replace('action/', '')
 			if (!actions.includes(action))
-				return await message.send(`${action} _is a invalid action_`)
+				return await message.send(`${action} _Geçersiz eylem_`)
 			await setWord(message.jid, action)
-			return await message.send(`_antiword action updated as ${action}_`)
+			return await message.send(`_antiword eylemi şu şekilde güncellendi: ${action}_`)
 		}
 		await setWord(message.jid, match == 'on')
 		await message.send(

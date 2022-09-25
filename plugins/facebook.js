@@ -4,7 +4,7 @@ bot(
 	{
 		pattern: 'fb ?(.*)',
 		fromMe: true,
-		desc: 'Download facebook video',
+		desc: 'Facebook tan video indirmeye yarar',
 		type: 'download',
 	},
 	async (message, match) => {
@@ -12,7 +12,7 @@ bot(
 		if (!match) return await message.send('_Example : fb url_')
 		const result = await facebook(match)
 		if (!result.length)
-			return await message.send('*Not found*', {
+			return await message.send('*Error! \nBulunamadı*', {
 				quoted: message.quoted,
 			})
 		return await message.send(
@@ -21,7 +21,7 @@ bot(
 					id: `upload ${e.url}`,
 					text: e.quality,
 				})),
-				'Choose Video Quality'
+				'Video Kalitesini Seçin'
 			),
 			{},
 			'button'

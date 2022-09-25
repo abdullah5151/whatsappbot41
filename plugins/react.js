@@ -3,12 +3,12 @@ bot(
 	{
 		pattern: 'react ?(.*)',
 		fromMe: true,
-		desc: 'React to msg',
+		desc: 'Mesaja tepki verir',
 		type: 'misc',
 	},
 	async (message, match) => {
 		if (!match || !message.reply_message)
-			return await message.send('_Example : react ❣_')
+			return await message.send('_Örnek : react ❣_')
 		return await message.send(
 			{
 				text: match,
